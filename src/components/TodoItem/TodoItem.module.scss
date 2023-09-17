@@ -21,6 +21,11 @@
       opacity: 0.5;
       transition: all 0.3s ease-out;
     }
+
+    p.completed {
+      text-decoration: line-through;
+    }
+
     &:hover {
       .todo__delete {
         opacity: 0.6;

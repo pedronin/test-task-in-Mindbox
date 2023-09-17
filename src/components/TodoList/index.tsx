@@ -6,7 +6,7 @@ import { addTodo, clearComplete } from '../../redux/slice';
 import TodoItem from '../TodoItem';
 import { EActiveListType } from '../../redux/types';
 
-const Todo = () => {
+const Todo: React.FC = () => {
   const dispatch = useAppDispatch();
   const [outValue, setOutValue] = React.useState('');
   const [activeListType, setActiveListType] = React.useState(EActiveListType.ALL);
@@ -23,7 +23,7 @@ const Todo = () => {
     return () => document.removeEventListener('keydown', handlerEnter);
   }, [outValue]);
 
-  // проверка выброного раздела (all/active/completed)
+  // фильтрация заметок согласно выбраному разделу (all/active/completed)
   const currentItems = React.useMemo(() => {
     switch (activeListType) {
       case EActiveListType.ALL:
@@ -41,7 +41,7 @@ const Todo = () => {
     setActiveListType(EActiveListType.ALL);
   };
 
-  const onClickClear = () => {
+  const onClickClearComplete = () => {
     dispatch(clearComplete());
     setActiveListType(EActiveListType.ALL);
   };
@@ -101,7 +101,7 @@ const Todo = () => {
             </button>
           </div>
           <button
-            onClick={onClickClear}
+            onClick={onClickClearComplete}
             className={`${styles.todo__clear_btn} ${styles.btn__bottom}`}>
             Clear completed
           </button>

@@ -2,7 +2,7 @@
   "name": "test_mindbox",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pedronin.github.io/portfolio/",
+  "homepage": "https://pedronin.github.io/test-task-in-Mindbox/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
@@ -15,7 +15,6 @@
     "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-id-generator": "^3.0.2",
     "react-redux": "^8.1.2",
     "react-scripts": "5.0.1",
     "sass": "^1.67.0",
