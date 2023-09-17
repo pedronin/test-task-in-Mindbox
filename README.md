@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Gh pages: https://pedronin.github.io/test-task-in-Mindbox/
 
-## Gh pages: https://pedronin.github.io/test-task-in-Mindbox/
+
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
