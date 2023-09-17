@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ITodoSlice } from './type';
+import { ITodoSlice } from './types';
+import nextId from 'react-id-generator';
 
 const initialState: ITodoSlice = {
   items: [],
@@ -11,16 +12,16 @@ const todoSlice = createSlice({
   reducers: {
     addTodo(state, action) {
       if (!action.payload.trim()) return;
-      state.items.push({ completed: false, text: action.payload });
+      state.items.push({ completed: false, text: action.payload, id: nextId() });
     },
     removeTodo(state, action) {
-      state.items = state.items.filter((item) => item.text !== action.payload);
+      state.items = state.items.filter((item) => item.id !== action.payload);
     },
-    todoClearCmpltd(state) {
+    clearComplete(state) {
       state.items = state.items.filter((item) => item.completed !== true);
     },
-    completedTodo(state, action) {
-      const find = state.items.find((item) => item.text === action.payload);
+    toggleComplete(state, action) {
+      const find = state.items.find((item) => item.id === action.payload);
       if (find) {
         find.completed = !find?.completed;
       }
@@ -28,5 +29,5 @@ const todoSlice = createSlice({
   },
 });
 
-export const { addTodo, removeTodo, todoClearCmpltd, completedTodo } = todoSlice.actions;
+export const { addTodo, removeTodo, clearComplete, toggleComplete } = todoSlice.actions;
 export default todoSlice.reducer;

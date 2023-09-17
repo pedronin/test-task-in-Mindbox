@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './TodoItem.module.scss';
 import { useAppDispatch, useAppSelector } from '../../Hook/redux';
-import { completedTodo, removeTodo } from '../../redux/todo/slice';
-import { TypeTodoItem } from '../../redux/todo/type';
+import { toggleComplete, removeTodo } from '../../redux/slice';
+import { TypeTodoItem } from '../../redux/types';
 
 interface ITodoItem {
   item: TypeTodoItem;
@@ -10,9 +10,18 @@ interface ITodoItem {
 
 const TodoItem: React.FC<ITodoItem> = ({ item }) => {
   const dispatch = useAppDispatch();
+  
+  const onClickToggleComplete = () => {
+    dispatch(toggleComplete(item.id));
+  };
+
+  const onClickRemoveTodo = () => {
+    dispatch(removeTodo(item.id));
+  };
+
   return (
     <li
-      onClick={() => dispatch(completedTodo(item.text))}
+      onClick={onClickToggleComplete}
       className={`${styles.todo__item} ${item.completed ? `${styles.completed}` : ''}`}>
       <input
         checked={item.completed}
@@ -21,9 +30,7 @@ const TodoItem: React.FC<ITodoItem> = ({ item }) => {
         type="checkbox"
       />
       <p className={styles.todo__text}>{item.text}</p>
-      <button
-        onClick={() => dispatch(removeTodo(item.text))}
-        className={`${styles.todo__delete} ${styles.btn}`}>
+      <button onClick={onClickRemoveTodo} className={`${styles.todo__delete} ${styles.btn}`}>
         &#215;
       </button>
     </li>

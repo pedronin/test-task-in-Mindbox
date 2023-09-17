@@ -30,17 +30,17 @@
   }
 
   &__checkbox {
-    position: relative;
     display: block;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    vertical-align: sub;
     border: 1px solid #ddd;
     cursor: pointer;
     appearance: none;
     &:checked {
       background-image: url('../../assets/img/checkmark.svg');
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: contain;
     }
   }

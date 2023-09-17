@@ -1,6 +1,7 @@
 export type TypeTodoItem = {
   text: string;
   completed: boolean;
+  id: string;
 };
 
 export interface ITodoSlice {

@@ -2,9 +2,9 @@ import React from 'react';
 
 import styles from './TodoList.module.scss';
 import { useAppDispatch, useAppSelector } from '../../Hook/redux';
-import { addTodo, todoClearCmpltd } from '../../redux/todo/slice';
+import { addTodo, clearComplete } from '../../redux/slice';
 import TodoItem from '../TodoItem';
-import { EActiveListType } from '../../redux/todo/type';
+import { EActiveListType } from '../../redux/types';
 
 const Todo = () => {
   const dispatch = useAppDispatch();
@@ -42,7 +42,7 @@ const Todo = () => {
   };
 
   const onClickClear = () => {
-    dispatch(todoClearCmpltd());
+    dispatch(clearComplete());
     setActiveListType(EActiveListType.ALL);
   };
 
@@ -71,30 +71,38 @@ const Todo = () => {
         <div className={styles.todo_wrapper}>
           <ul className={styles.todo__list}>
             {currentItems.map((item) => (
-              <TodoItem item={item} key={item.text} />
+              <TodoItem item={item} key={item.id} />
             ))}
           </ul>
         </div>
         <div className={styles.todo__bottom}>
           <div className={styles.todo__items_left}>{currentItems.length} items left</div>
           <div className={styles.todo__bottom_wrapper}>
-            <button onClick={onClickAll} className={`${styles.todo__all_btn} ${styles.btn_bottom}`}>
+            <button
+              onClick={onClickAll}
+              className={`${styles.todo__all_btn} ${styles.btn__bottom} ${
+                activeListType === EActiveListType.ALL ? styles.active : ''
+              }`}>
               All
             </button>
             <button
               onClick={onClickActive}
-              className={`${styles.todo__active_btn} ${styles.btn_bottom}`}>
+              className={`${styles.todo__active_btn} ${styles.btn__bottom} ${
+                activeListType === EActiveListType.ACTIVE ? styles.active : ''
+              }`}>
               Active
             </button>
             <button
               onClick={onClickCompleted}
-              className={`${styles.todo__completed_btn} ${styles.btn_bottom}`}>
+              className={`${styles.todo__completed_btn} ${styles.btn__bottom} ${
+                activeListType === EActiveListType.COMPLETED ? styles.active : ''
+              }`}>
               Completed
             </button>
           </div>
           <button
             onClick={onClickClear}
-            className={`${styles.todo__clear_btn} ${styles.btn_bottom}`}>
+            className={`${styles.todo__clear_btn} ${styles.btn__bottom}`}>
             Clear completed
           </button>
         </div>
