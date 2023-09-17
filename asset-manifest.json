@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/test-task-in-Mindbox/static/css/main.14b3afa2.css",
+    "main.js": "/test-task-in-Mindbox/static/js/main.e48bec1f.js",
+    "index.html": "/test-task-in-Mindbox/index.html",
+    "static/media/checkmark.svg": "/test-task-in-Mindbox/static/media/checkmark.63189e9068ae5c727331.svg",
+    "main.14b3afa2.css.map": "/test-task-in-Mindbox/static/css/main.14b3afa2.css.map",
+    "main.e48bec1f.js.map": "/test-task-in-Mindbox/static/js/main.e48bec1f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14b3afa2.css",
+    "static/js/main.e48bec1f.js"
+  ]
+}
